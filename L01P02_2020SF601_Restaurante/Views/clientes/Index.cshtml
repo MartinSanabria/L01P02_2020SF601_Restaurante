@@ -1,0 +1,44 @@
+﻿@model IEnumerable<L01P02_2020SF601_Restaurante.Models.clientes>
+
+<div class="container">
+    <h1>Listado de clientes</h1>
+
+
+    <p>
+        <a type="button" class="btn btn-primary" asp-action="Create">Nuevo Cliente</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.nombreCliente)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.direccion)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombreCliente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.direccion)
+                    </td>
+                    <td>
+                        <a type="button" class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.clienteId">Edit</a> 
+                        <a type="button" class="btn btn-info" asp-action="Details" asp-route-id="@item.clienteId">Details</a> 
+                        <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.clienteId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
